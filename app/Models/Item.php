@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+    public function Orders() {
+        return $this->hasMany(Orders::class);
+    }
     use HasFactory;
 
     protected $table = 'items';
+    public $timestamps = true;
 
     protected $fillable = [
-        'photo', 'name', 'description', 'rating', 'stock', 'price', 'sold', 
+        'photo', 'name', 'description', 'rating', 'stock', 'price', 'sold', 'created_at', 'updated_at',
     ];
 }

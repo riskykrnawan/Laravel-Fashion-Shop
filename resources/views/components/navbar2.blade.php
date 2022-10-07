@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container">
-    <div id="logo bg-light">
-      <a class="navbar-brand text-upper brand" href="#">{{ $title }}<span class="text-danger">.</span></a>
+    <div id="logo">
+      <a class="navbar-brand text-upper brand" href="#">
+          {{ $title }}<span class="text-danger">.</span>
+      </a>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,9 +37,13 @@
       </form>
       <ul class="navbar-nav d-flex my-2 my-lg-0 navbar-nav-scroll navbar-icon-list" style="--bs-scroll-height: 300px;">
         <li class="nav-item">
-          <button class="btn btn-link text-decoration-underline nav-link w-100" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Login
-          </button>
+          <a class="nav-link" href="#"><i class="bi bi-bag-fill fs-4"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-bookmark-heart-fill fs-4"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-person-fill fs-4"></i></a>
         </li>
       </ul>
     </div>

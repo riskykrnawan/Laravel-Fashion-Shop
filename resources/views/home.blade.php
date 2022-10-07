@@ -1,6 +1,5 @@
 @extends('layouts.global')
-
-@section('content')
+@section('content_home')
   <div class="container container-1-light w-100 p-relative mt-4 mb-5">
     @include('components.banner')
   </div>  
