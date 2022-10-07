@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use App\Models\Banner;
 use App\Models\Item;
 use Illuminate\Support\Facades\Request;
@@ -40,3 +42,8 @@ Route::get('/admin/products/edit/{id}', [ItemController::class, 'edit']);
 Route::post('/admin/products/update', [ItemController::class, 'update']);
 Route::post('/admin/products/store', [ItemController::class, 'store']);
 Route::get('/admin/products/delete/{id}', [ItemController::class, 'delete']);
+
+
+Route::get('/admin/orders', [OrderController::class, 'index']);
+
+Route::get('/admin/users', [UserController::class, 'index']);

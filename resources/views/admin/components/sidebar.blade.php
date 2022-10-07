@@ -14,15 +14,15 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/admin/orders">
           <span data-feather="file" class="align-text-bottom"></span>
           Orders
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/admin/users">
           <span data-feather="users" class="align-text-bottom"></span>
-          Customers (Coming soon)
+          Users
         </a>
       </li>
       {{-- <li class="nav-item">

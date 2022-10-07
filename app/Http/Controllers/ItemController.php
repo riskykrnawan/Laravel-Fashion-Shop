@@ -12,10 +12,10 @@ class ItemController extends Controller
 {
     public function index()
     {
-        // mengambil data dari table pegawais
+        // mengambil data dari table items
         $items = DB::table('items')->orderByDesc('updated_at')->paginate(10);
 
-        // mengirim data dari table pegawais ke view index
+        // mengirim data dari table items ke view index
         return view('admin.products.index', [
             'id' => 'Sebuah Id Akun',
             'items' => $items,
