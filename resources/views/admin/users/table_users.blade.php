@@ -27,7 +27,7 @@
           <td>{{ $user->remember_token}}</td>
           <td>{{ $user->created_at }}</td>
           <td>{{ $user->updated_at }}</td>
-          <td><a href="/admin/users/show/{{ $user->id }}"><button type="button" class="btn btn-success"><i class="bi bi-eye-fill"></i></button></a></td>
+          {{-- <td><a href="/admin/users/show/{{ $user->id }}"><button type="button" class="btn btn-success"><i class="bi bi-eye-fill"></i></button></a></td> --}}
           <td><a href="/admin/users/edit/{{ $user->id }}"><button type="button" class="btn btn-primary"><i class="bi bi-pen-fill"></i></button></a></td>
           <td><a href="/admin/users/delete/{{ $user->id }}"><button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></a></td>
         </tr>  
