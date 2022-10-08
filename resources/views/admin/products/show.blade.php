@@ -73,7 +73,7 @@
             </table>
             <div class="float-end">
               <a href="/admin/products/edit/{{ $item->id }}"><button type="button" class="btn btn-primary"><i class="bi bi-pen-fill"></i></button></a>
-              <a href="/admin/products/delete/{{ $item->id }}"><button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></a>
+              <button type="button" class="btn btn-danger" onclick='deleteAlert("/admin/products/delete/{{ $item->id }}")'><i class="bi bi-trash3-fill"></i></button>
             </div>
             @endif
           @endforeach

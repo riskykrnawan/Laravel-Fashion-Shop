@@ -13,12 +13,12 @@
         </div>
       </div>
     </header>
-    <div class="container-fluid">
+    <div class="container-fluid mb-5">
       <div class="row">
         @include('admin.components.sidebar')
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"></div>
-            <form action="/admin/products/update" method="post" enctype="multipart/form-data">
+            <form action="/admin/products/update" method="post" enctype="multipart/form-data" onsubmit="createAlert()">
               {{ csrf_field() }}
               <input type="hidden" name="id" value="{{ $item->id }}">
               <div class="mb-3 text-center">
