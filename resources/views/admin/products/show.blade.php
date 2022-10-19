@@ -2,18 +2,6 @@
 
 @section('content.products')
   <body>
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">NIKKY ADMIN</a>
-      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
-      <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-          <a class="nav-link px-3" href="#">Sign out</a>
-        </div>
-      </div>
-    </header>
     
     <div class="container-fluid my-3">
       <div class="row">
@@ -73,7 +61,7 @@
             </table>
             <div class="float-end">
               <a href="/admin/products/edit/{{ $item->id }}"><button type="button" class="btn btn-primary"><i class="bi bi-pen-fill"></i></button></a>
-              <a href="/admin/products/delete/{{ $item->id }}"><button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button></a>
+              <button type="button" class="btn btn-danger" onclick='deleteAlert("/admin/products/delete/{{ $item->id }}")'><i class="bi bi-trash3-fill"></i></button>
             </div>
             @endif
           @endforeach

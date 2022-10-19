@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="mb-1" id="logo-dark-footer">
     <a href="#" id="brand" class="text-uppercase brand text-white text-decoration-none">
-      {{ $title }}<span class="text-danger">.</span>
+      NIKKY<span class="text-danger">.</span>
     </a>
   </div>
   <div class="mt-5">

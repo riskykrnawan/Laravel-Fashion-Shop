@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Models\Banner;
 use App\Models\Item;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,27 +25,37 @@ Route::get('/', function () {
     return view('home', [
         'route' => Request::route()->getName(),
         'title' => 'NIKKY',
-        'items' => Item::all(),
+        'items' => DB::table('items')->paginate(12),
         'banners' => Banner::all(),
     ]);
 })->name('home');
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard.index', [
-        'title' => 'NIKKY',
-        'id' => 'Sebuah Id Akun',
-        'name' => 'Sebuah nama',
+Route::get('/products', function() {
+    return view('products', [
+        'items' => DB::table('items')->get(),
     ]);
 });
-Route::get('/admin/products', [ItemController::class, 'index']);
-Route::get('/admin/products/show/{id}', [ItemController::class, 'show']);
-Route::get('/admin/products/create', [ItemController::class, 'create']);
-Route::get('/admin/products/edit/{id}', [ItemController::class, 'edit']);
-Route::post('/admin/products/update', [ItemController::class, 'update']);
-Route::post('/admin/products/store', [ItemController::class, 'store']);
-Route::get('/admin/products/delete/{id}', [ItemController::class, 'delete']);
 
 
-Route::get('/admin/orders', [OrderController::class, 'index']);
+Route::controller(AuthController::class)->prefix('/auth')->group(function (){
+    Route::post('/register', 'register');
+    Route::post('/login', 'login');
+    Route::get('/logout', 'logout');
+});
 
-Route::get('/admin/users', [UserController::class, 'index']);
+Route::middleware(['auth'])->prefix('/admin')->group(function (){
+    Route::controller(ItemController::class)->prefix('/products')->group(function() {
+        Route::get('/', 'index');
+        Route::get('/show/{id}', 'show');
+        Route::get('/create', 'create');
+        Route::get('/edit/{id}', 'edit');
+        Route::post('/update', 'update');
+        Route::post('/store', 'store');
+        Route::get('/delete/{id}', 'delete');
+    });
+    Route::get('/orders', [OrderController::class, 'index']);
+    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard.index');
+    });
+});
