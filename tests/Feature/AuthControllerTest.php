@@ -16,6 +16,7 @@ class AuthControllerTest extends TestCase
     public function testRegister()
     {
         $this->post('/auth/register', [
+            'id' => '999',
             'name' => 'sebuah nama',
             'email' => 'sebuah@email.com',
             'password' => 'sebuahpassword',
@@ -29,4 +30,9 @@ class AuthControllerTest extends TestCase
             'password' => 'sebuahpassword',
         ])->assertStatus(302)->assertRedirect('/admin/products');
     }
+    // public function testDeleteAfterLogin()
+    // {
+    //     $this->get('/admin/users/delete/999')
+    //         ->assertStatus(302)->assertRedirect('/admin/products');
+    // }
 }
