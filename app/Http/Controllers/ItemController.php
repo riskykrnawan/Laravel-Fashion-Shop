@@ -57,6 +57,7 @@ class ItemController extends Controller
         return redirect('/admin/products');
     }
 
+    // delete products
     public function delete(string $id)
 	{
 		$item = DB::table('items')->where('id', $id);
@@ -68,6 +69,7 @@ class ItemController extends Controller
 		return redirect('/admin/products');
 	}
 
+    // edit products
     public function edit(string $id) {
         $item = DB::table('items')->where('id', $id)->first();
 
@@ -76,6 +78,7 @@ class ItemController extends Controller
         ]);
     }
 
+    // update products
     public function update(Request $request) {
         $oldImage = $request->photo;
         $newImage = $request->newPhoto;
